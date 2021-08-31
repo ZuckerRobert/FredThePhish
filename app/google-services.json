@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "447480827689",
+    "project_id": "fred-the-phish",
+    "storage_bucket": "fred-the-phish.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447480827689:android:8e5782868ea34a0c873138",
+        "android_client_info": {
+          "package_name": "com.example.fredthephish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447480827689-9rim4phagksmr94cbuhnb23eb05at4i9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGC-EFZmouGX5NNObsE_FrJRsJsmmVFkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447480827689-9rim4phagksmr94cbuhnb23eb05at4i9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
