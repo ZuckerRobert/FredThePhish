@@ -3,7 +3,11 @@ package com.example.fredthephish
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.ContextMenu
+import android.view.MenuItem
+import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -46,45 +50,39 @@ class MainActivity : AppCompatActivity() {
 
 
         var recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-
         layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
 
         //wait for this
-        var tempi =  getDBEntries(sammlung)
+        getDBEntries(sammlung)
 
-        //liste von fischen mitgeben TODO
         adapter = RecyclerAdapter(listOfItems)
         recyclerView.adapter = adapter
 
+        this.registerForContextMenu(recyclerView)
 
-        // Create a new item
-        val user = hashMapOf(
-            "first" to "Ada",
-            "last" to "Lovelace",
-            "born" to 1815
-        )
-        var fisch = DBEntries(
-            name = "Barsch geräuchert",
-            amount = "12",
-            description = "geräuchert",
-            reserved = "5",
-        )
 
-        /*
-        // Add a new document with a generated ID
-        db.collection("fisch").document("sammlung")
-            .set(fisch)
-            .addOnSuccessListener {
-                Log.d(TAG, "DocumentSnapshot added")
-            }
-            .addOnFailureListener { e ->
-                Log.w(TAG, "Error adding document", e)
-            }
+        var countUpButton = findViewById<Button>(R.id.CountUpButton)
+        var countDownButton = findViewById<Button>(R.id.CountDownButton)
 
-        */
+
+
     }
 
+    override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        menu?.setHeaderTitle("Choose your option")
+        menuInflater.inflate(R.menu.example_menue, menu)
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.EditEntryFloatingContextMenue -> Toast.makeText(this, "EditEntryFloatingContextMenue", Toast.LENGTH_SHORT).show()
+            R.id.RemoveEntryFloatingContextMenue -> Toast.makeText(this, "RemoveEntryFloatingContextMenue", Toast.LENGTH_SHORT).show()
+        }
+
+        return super.onContextItemSelected(item)
+    }
 
     private fun getDBEntries(sammlung: String) {
         //get collection
@@ -105,6 +103,7 @@ class MainActivity : AppCompatActivity() {
 
                     listOfItems.add(fisch)
                 }
+                //publish
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents.", exception)

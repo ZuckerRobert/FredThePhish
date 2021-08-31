@@ -1,5 +1,6 @@
 package com.example.fredthephish
 
+import android.text.Editable
 
 
 class DBEntries(name: String, description: String, amount: String, reserved: String) {

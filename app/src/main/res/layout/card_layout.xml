@@ -20,8 +20,8 @@
         >
         <ImageView
             android:id="@+id/item_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="111dp"
+            android:layout_height="111dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             />
@@ -44,6 +44,43 @@
             app:layout_constraintTop_toBottomOf="@id/item_title"
             app:layout_constraintLeft_toRightOf="@id/item_image"
             />
+
+        <Button
+            android:id="@+id/CountUpButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:icon="@android:drawable/ic_input_add"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/item_detail"
+            app:layout_constraintLeft_toRightOf="@id/item_image"
+            android:padding="4dp"
+            />
+        <Button
+            android:id="@+id/CountDownButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:icon="@android:drawable/ic_delete"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/item_detail"
+            app:layout_constraintLeft_toRightOf="@id/CountUpButton"
+            android:padding="4dp"
+            />
+        <TextView
+            android:id="@+id/TextFieldAmount"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/item_detail"
+            app:layout_constraintLeft_toRightOf="@id/CountDownButton"
+            android:gravity="center"
+            android:textSize="30sp"
+            />
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
